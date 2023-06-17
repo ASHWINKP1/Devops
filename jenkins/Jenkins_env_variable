@@ -1,0 +1,25 @@
+pipeline{
+    agent none
+    environment{
+        DEPLOY_TO='Production'
+        ACTION='DEPLOY'
+    }
+    stages{
+        satge('build'){
+            agent any
+            environment{
+                BUILD_STAGE='yes'
+            }
+            steps{
+                sh 'sleep 5'
+            }
+        stage('test'){
+            agent {label 'slave1'}
+            steps {
+                echo "${env.DEPLOY_TO}"
+            }
+        }
+
+        }
+    }
+}
