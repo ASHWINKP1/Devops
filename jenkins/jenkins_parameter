@@ -1,0 +1,17 @@
+pipeline {
+	agent none  
+	stages {
+		stage('BUILD') {
+			steps {
+				script{
+                    def ENVIRONMENT = "${params.ENVIRON}"
+                    if ( ENVIRONMENT == 'TEST'){
+                        echo "Deploying to test environment"
+                    } else if ( ENVIRONMENT == 'QA'){
+                        echo "Deploying to QA environment"
+                    }
+                }
+			}	
+		}
+	}
+}
