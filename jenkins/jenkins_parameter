@@ -2,8 +2,11 @@ pipeline {
 	agent none
 
     parameters {
-  choice choices: ['TEST', 'QA', 'DEPLOY'], description: 'enter the environment to deploy', name: 'DEPLOY'
-}  
+        choice choices: ['TEST', 'QA', 'DEPLOY'], description: 'enter the environment to deploy', name: 'DEPLOY'
+                } 
+    triggers {
+        cron('H */4 * * 1-5')
+                } 
 	stages {
 		stage('BUILD') {
 			steps {
