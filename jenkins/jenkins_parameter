@@ -4,10 +4,10 @@ pipeline {
 		stage('BUILD') {
 			steps {
 				script{
-                    def ENVIRONMENT = "${params.ENVIRON}"
-                    if ( ENVIRONMENT == 'TEST'){
+                    def ENVIRONMENT = "${params.DEPLOY}"
+                    if( ENVIRONMENT == 'TEST'){
                         echo "Deploying to test environment"
-                    } else if ( ENVIRONMENT == 'QA'){
+                    } else if( ENVIRONMENT == 'QA'){
                         echo "Deploying to QA environment"
                     }
                 }
