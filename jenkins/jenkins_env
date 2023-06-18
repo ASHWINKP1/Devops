@@ -1,0 +1,39 @@
+boolean stageresult = true
+
+pipeline{
+    agent any
+    stages{
+        stage ('stage1'){
+            steps{
+                script{
+                    try{
+                        echo "this is satge1 execution"
+                        sh 'sleep 5'
+                    } catch (Exeption e) {
+                        echo "stage1 failed"
+                        stageresult = false
+                    }
+                }
+            }
+        }
+        stage ('stage2'){
+            steps{
+                script{
+                    if (stageresult == true){
+                        echo "stage1 is success so executing stage2"
+                    }
+                }
+            }
+        }
+        stage ('stage3'){
+            steps{
+                script{
+                    if (stageresult == false){
+                        echo "stage1 is failed so executing stage3"
+                    }
+                }
+            }
+        }
+    }
+}
+
