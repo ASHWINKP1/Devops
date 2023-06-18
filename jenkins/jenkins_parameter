@@ -7,6 +7,10 @@ pipeline {
     triggers {
         pollSCM('H */4 * * 1-5') 
                 } 
+    options {
+                timeout(time: 1, unit: 'HOURS')
+                retry(3) 
+            }            
 	stages {
 		stage('BUILD') {
 			steps {
