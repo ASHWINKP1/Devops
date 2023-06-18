@@ -1,5 +1,9 @@
 pipeline {
-	agent none  
+	agent none
+
+    parameters {
+  choice choices: ['TEST', 'QA', 'DEPLOY'], description: 'enter the environment to deploy', name: 'DEPLOY'
+}  
 	stages {
 		stage('BUILD') {
 			steps {
