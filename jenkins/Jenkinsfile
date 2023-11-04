@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    satges{
+    stages{
         stage ('TEST'){
             steps{
                 sh 'sleep 5'
