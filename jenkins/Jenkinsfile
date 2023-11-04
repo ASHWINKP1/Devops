@@ -1,18 +1,20 @@
 pipeline{
-    
     agent any
-    
-    stages{
-        stage ('stage1'){
+    satges{
+        stage ('TEST'){
             steps{
-                echo "this is first stage"
-                }
+                sh 'sleep 5'
             }
-    
-        stage ('stage2'){
+        }
+         stage ('BUILD'){
             steps{
-                echo "this is second stage"
-                }
+                sh 'sleep 5'
             }
-    }   
-}   
+        }
+         stage ('DEPLOY'){
+            steps{
+                sh 'sleep 5'
+            }
+        }
+    }
+}
