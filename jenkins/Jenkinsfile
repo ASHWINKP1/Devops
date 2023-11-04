@@ -1,20 +1,20 @@
-pipeline{
-    stages{
-        stage ('TEST'){
+pipeline {
+    stages {
+        stage ('TEST') {
             agent {label 'master'}
-            steps{
+            steps {
                 sh 'sleep 5'
             }
         }
-         stage ('BUILD'){
+         stage ('BUILD') {
             agent {label 'slave1'}
-            steps{
+            steps {
                 sh 'sleep 5'
             }
         }
-         stage ('DEPLOY'){
+         stage ('DEPLOY') {
             agent {label 'slave2'}
-            steps{
+            steps {
                 sh 'sleep 5'
             }
         }
