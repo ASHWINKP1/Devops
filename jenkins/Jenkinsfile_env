@@ -1,0 +1,23 @@
+pipeline{
+    agent none
+    environment{
+        DEPLOY_TO = "production"
+        ACTION = "deploy"
+    }
+    stages{
+        stage('BUILD'){
+            agent any
+            steps{
+                script{
+                    env.DEPLOY_TO = "new_production"
+                }
+            }
+        }
+        stage('TEST'){
+            agent {label 'slave1'}
+            steps{
+                echo "${env.DEPLOY_TO}"
+            }
+        }
+    }
+}
