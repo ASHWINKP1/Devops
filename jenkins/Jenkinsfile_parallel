@@ -1,29 +1,52 @@
-pipeline{
-    agent any
-    stages{
-        stage('BUILD'){
-            steps{
-                sh 'sleep 5; this is the 1st stage'
-            }
-        }
-        stage('TEST MULTIPLE'){
-            parallel{
-                stage('TEST1'){
-                    steps{
-                       sh 'sleep 5; this is the 1st stage;TEST1' 
-                    }
-                }
-                 stage('TEST2'){
-                    steps{
-                       sh 'sleep 5; this is the 1st stage;TEST2' 
-                    }
-                }
-            }
-        stage('DEPLOY'){
-            steps{
-                sh 'sleep 5; this is the 3rd stage'
-            }
-        }
-        }
-    }
+pipeline {
+	agent any  
+	stages {
+		stage('BUILD') {
+			steps {
+				sh '''
+					pwd
+					sleep 5
+					echo This is the fist stage: BUILD
+				'''
+			}	
+		}
+		
+		stage('TEST MULTIPLE') {
+			parallel {
+				stage('TEST1') {
+					steps {
+						sh 'sleep 5; echo This is the fist stage: TEST1'
+					}	
+				}
+
+				stage('TEST2') {
+					steps {
+						sh 'sleep 5; echo This is the fist stage: TEST2'
+					}	
+				}
+
+				stage('TEST3') {
+					steps {
+						sh 'sleep 5; echo This is the fist stage: TEST3'
+					}	
+				}
+
+				stage('TEST4') {
+					steps {
+						sh 'sleep 5; echo This is the fist stage: TEST4'
+					}	
+				}
+			}
+		}
+		
+		stage('DEPLOY') {
+			steps {
+				sh '''
+					pwd
+					sleep 5
+					echo This is the fist stage: DEPLOY
+				'''
+			}	
+		}
+	}
 }
