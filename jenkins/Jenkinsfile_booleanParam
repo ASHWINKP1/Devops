@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('example'){
             steps{
-                echo "Toggle: ${params.TOGGLE}""
+                echo "Toggle: ${params.TOGGLE}"
             }
         }
     }
