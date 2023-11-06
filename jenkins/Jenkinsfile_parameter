@@ -1,10 +1,8 @@
 pipeline{
     agent any
     parameters {
-    choice choices: ['test', 'qa', 'prod'], description: 'enter the environment to deploy', name: 'DEPLOY'
+  choice choices: ['test', 'qa', 'prod'], description: 'enter the environment to deploy', name: 'DEPLOY'
 }
-
-    }
     stages{
         stage('BUILD'){
             steps{
