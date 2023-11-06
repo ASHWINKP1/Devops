@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    stages{
+        stage('BUILD'){
+            steps{
+                script{
+                    def ENVIRONMENT = "${params.DEPLOY}"
+                    if (ENVIRONMENT == 'test'){
+                        echo "deploy the app in test environment"
+                    } else if (ENVIRONMENT == 'prod'){
+                        echo "deploy the app in prod environment"
+                    }
+                }
+            }
+        }
+    }
+}
