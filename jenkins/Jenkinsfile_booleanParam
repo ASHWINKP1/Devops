@@ -1,0 +1,13 @@
+pipeline{
+    agent any
+    parameters{
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+    }
+    stages{
+        stage('example'){
+            steps{
+                echo "Toggle: ${params.TOGGLE}""
+            }
+        }
+    }
+}
