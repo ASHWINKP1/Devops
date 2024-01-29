@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: ip-app
-    image: harshajain/ip_app:2
+    image: vin1093/ip-app:latest
     ports:
     - containerPort: 80
     volumeMounts:
