@@ -1,8 +1,7 @@
 apiVersion: v1 
 kind: ConfigMap 
 metadata:
-    name: my-vol-cm
+    name: my-cm
 data: 
-    app.properties: | 
        env: prod 
        app: frontend   
