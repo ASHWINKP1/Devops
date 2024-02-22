@@ -1,19 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ip-app-deployment
+  name: main-app-with-hpa
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
-      app: ip-app
+      app: php-app
   template:
     metadata:
       labels:
-        app: ip-app    
+        app: php-app
+    spec:
       containers:
-      - name: ipapp
-        image: harshajain/ip_app:2
-        imagePullPolicy: Always
+      - name: php-application
+        image: registry.k8s.io/hpa-example
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
