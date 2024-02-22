@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .values.deploymentName }}
+  name: {{ .Values.deploymentName }}
 spec:
-  replicas: {{ .values.deploymentReplicaCount }}
+  replicas: {{ .Values.deploymentReplicaCount }}
   selector:
     matchLabels:
       app: php-app
